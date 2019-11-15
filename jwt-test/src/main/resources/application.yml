@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: @jwt-test@
+server:
+  port: 8006

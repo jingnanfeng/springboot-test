@@ -1,0 +1,19 @@
+security:
+  oauth2:
+    client:
+      client-id: test
+      client-secret: test1234
+      registered-redirect-uri: http://mrbird.cc
+server:
+  port: 8002
+
+spring:
+  redis:
+    host: 192.168.147.128
+    port: 6379
+    jedis:
+      pool:
+        max-idle: 8
+        max-active: 8
+        max-wait: -1
+        min-idle: 0
