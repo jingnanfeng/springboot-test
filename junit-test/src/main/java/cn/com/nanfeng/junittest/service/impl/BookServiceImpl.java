@@ -24,7 +24,7 @@ public class BookServiceImpl implements IBookService {
     private BookMapper bookMapper;
 
     @Override
-    public Book decrementBook(int bId) {
+    public Book decrementBook(Integer bId) {
         try {
             //查询书籍
             Book book = bookMapper.selectByPrimaryKey(bId);
@@ -44,5 +44,37 @@ public class BookServiceImpl implements IBookService {
             e.printStackTrace();
             throw e;
         }
+    }
+
+    @Override
+    public Book queryBookById(Integer bId) {
+        logger.info("BookServiceImpl -> queryBookById - 进入方法{}");
+        try {
+            if (bId == null){
+                throw new RuntimeException("参数错误,id不能为空");
+            }
+
+            Book book = bookMapper.selectByPrimaryKey(bId);
+
+            return book;
+        }catch (Exception e){
+            logger.info("服务器内部错误");
+            e.printStackTrace();
+            throw e;
+        }
+    }
+
+    @Override
+    public int addBook(Book book) {
+        logger.info("BookServiceImpl -> addBook - 进入方法{}");
+        try {
+            int res = bookMapper.insertSelective(book);
+            return res;
+        }catch (Exception e){
+            logger.info("服务器内部错误");
+            e.printStackTrace();
+            throw e;
+        }
+
     }
 }

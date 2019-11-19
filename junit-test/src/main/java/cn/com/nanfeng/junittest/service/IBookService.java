@@ -15,6 +15,20 @@ public interface IBookService {
      * @param bId
      * @return
      */
-    Book decrementBook(int bId);
+    Book decrementBook(Integer bId);
+
+    /**
+     * 查询某一本书籍
+     * @param bId
+     * @return
+     */
+    Book queryBookById(Integer bId);
+
+    /**
+     * 添加一本书籍
+     * @param book
+     * @return
+     */
+    int addBook(Book book);
 
 }

@@ -23,15 +23,15 @@
     delete from book
     where b_id = #{bId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.com.nanfeng.junittest.model.po.Book">
-    insert into book (b_id, b_name, b_content, 
+  <insert id="insert" parameterType="cn.com.nanfeng.junittest.model.po.Book" keyProperty="bId" useGeneratedKeys="true">
+    insert into book (b_name, b_content,
       b_image, b_price, b_number, 
       b_date)
-    values (#{bId,jdbcType=INTEGER}, #{bName,jdbcType=VARCHAR}, #{bContent,jdbcType=VARCHAR}, 
+    values (#{bName,jdbcType=VARCHAR}, #{bContent,jdbcType=VARCHAR},
       #{bImage,jdbcType=VARCHAR}, #{bPrice,jdbcType=INTEGER}, #{bNumber,jdbcType=INTEGER}, 
       #{bDate,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="cn.com.nanfeng.junittest.model.po.Book">
+  <insert id="insertSelective" parameterType="cn.com.nanfeng.junittest.model.po.Book" keyProperty="bId" useGeneratedKeys="true">
     insert into book
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="bId != null">
