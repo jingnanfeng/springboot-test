@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 /**
  * @author liutao
@@ -35,7 +36,7 @@ public class BookController {
     }
 
     @PostMapping("/book/addBook")
-    public String addBook(@RequestBody Book book){
+    public String addBook(@Valid @RequestBody Book book){
         int res = bookService.addBook(book);
         if (res == 0){
             throw new RuntimeException("添加失败");

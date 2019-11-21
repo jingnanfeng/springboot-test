@@ -20,18 +20,15 @@
     delete from users
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.com.nanfeng.junittest.model.po.Users">
-    insert into users (id, name, age, 
+  <insert id="insert" parameterType="cn.com.nanfeng.junittest.model.po.Users" keyProperty="id" useGeneratedKeys="true">
+    insert into users (name, age,
       sex)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, 
+    values (#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
       #{sex,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cn.com.nanfeng.junittest.model.po.Users">
+  <insert id="insertSelective" parameterType="cn.com.nanfeng.junittest.model.po.Users" keyProperty="id" useGeneratedKeys="true">
     insert into users
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
       <if test="name != null">
         name,
       </if>
@@ -43,9 +40,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
       </if>

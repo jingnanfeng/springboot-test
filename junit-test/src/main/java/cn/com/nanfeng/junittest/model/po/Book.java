@@ -1,6 +1,7 @@
 package cn.com.nanfeng.junittest.model.po;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
 import java.util.Date;
 
@@ -13,6 +14,7 @@ import java.util.Date;
 public class Book {
     private Integer bId;
 
+    @Length(min = 1,max = 10, message = "书名不规范")
     private String bName;
 
     private String bContent;

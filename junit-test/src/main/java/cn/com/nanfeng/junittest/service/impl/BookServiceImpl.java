@@ -68,7 +68,7 @@ public class BookServiceImpl implements IBookService {
     public int addBook(Book book) {
         logger.info("BookServiceImpl -> addBook - 进入方法{}");
         try {
-            int res = bookMapper.insertSelective(book);
+            int res = bookMapper.insert(book);
             return res;
         }catch (Exception e){
             logger.info("服务器内部错误");

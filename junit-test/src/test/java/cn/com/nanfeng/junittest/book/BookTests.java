@@ -83,7 +83,7 @@ public class BookTests {
     @Test
     public void addBook() throws Exception{
         Book book = new Book();
-        book.setBName("西游记");
+        book.setBName("西游记sddsdawwdawsdawdawdadawefeeg");
         book.setBNumber(30);
         book.setBContent("师徒四人的取经之旅");
         book.setBDate(new Date());
