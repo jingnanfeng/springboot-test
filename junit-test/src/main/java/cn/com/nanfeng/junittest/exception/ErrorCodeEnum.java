@@ -8,7 +8,9 @@ package cn.com.nanfeng.junittest.exception;
  */
 public enum ErrorCodeEnum {
 
-
+    /**
+     * 参数错误
+     */
     B10001(10001,"参数错误"),
     ;
 
