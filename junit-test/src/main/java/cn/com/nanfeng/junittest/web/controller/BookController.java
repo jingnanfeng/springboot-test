@@ -1,7 +1,11 @@
 package cn.com.nanfeng.junittest.web.controller;
 
+import cn.com.nanfeng.junittest.exception.BusinessException;
+import cn.com.nanfeng.junittest.exception.ErrorCodeEnum;
 import cn.com.nanfeng.junittest.model.po.Book;
 import cn.com.nanfeng.junittest.service.IBookService;
+import cn.com.nanfeng.junittest.util.WrapMapper;
+import cn.com.nanfeng.junittest.util.Wrapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
@@ -36,12 +40,17 @@ public class BookController {
     }
 
     @PostMapping("/book/addBook")
-    public String addBook(@Valid @RequestBody Book book){
+    public Wrapper<String> addBook(@RequestBody Book book){
+
+        Wrapper<String> wrapper = null;
+
         int res = bookService.addBook(book);
-        if (res == 0){
-            throw new RuntimeException("添加失败");
+        if (res != 0){
+            wrapper = WrapMapper.wrap(200,"添加成功");
+        }else {
+            throw new BusinessException(ErrorCodeEnum.B10500.getCode(),ErrorCodeEnum.B10500.getMessage());
         }
-        return "添加成功";
+        return wrapper;
     }
 
 }
