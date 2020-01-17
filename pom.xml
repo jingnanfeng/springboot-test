@@ -25,6 +25,8 @@
         <module>rabbitmq-test</module>
         <module>junit-test</module>
         <module>mybatis-test</module>
+        <module>filterandint-test</module>
+        <module>boot-commit</module>
     </modules>
 
     <properties>

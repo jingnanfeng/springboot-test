@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.nanfeng.oracle_test.mapper.NfBookMapper">
+  <resultMap id="BaseResultMap" type="cn.com.nanfeng.oracle_test.model.po.NfBook">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="BOOK_NAME" jdbcType="VARCHAR" property="bookName" />
+    <result column="BOOK_CONTENT" jdbcType="VARCHAR" property="bookContent" />
+    <result column="BOOK_PRICE" jdbcType="DECIMAL" property="bookPrice" />
+    <result column="BOOK_NUMBER" jdbcType="DECIMAL" property="bookNumber" />
+    <result column="AUTHER" jdbcType="VARCHAR" property="auther" />
+    <result column="DEL_FLAG" jdbcType="CHAR" property="delFlag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, BOOK_NAME, BOOK_CONTENT, BOOK_PRICE, BOOK_NUMBER, AUTHER, DEL_FLAG
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from NF_BOOK
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from NF_BOOK
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="cn.com.nanfeng.oracle_test.model.po.NfBook">
+    insert into NF_BOOK (ID, BOOK_NAME, BOOK_CONTENT, 
+      BOOK_PRICE, BOOK_NUMBER, AUTHER, 
+      DEL_FLAG)
+    values (#{id,jdbcType=DECIMAL}, #{bookName,jdbcType=VARCHAR}, #{bookContent,jdbcType=VARCHAR}, 
+      #{bookPrice,jdbcType=DECIMAL}, #{bookNumber,jdbcType=DECIMAL}, #{auther,jdbcType=VARCHAR}, 
+      #{delFlag,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.com.nanfeng.oracle_test.model.po.NfBook">
+    insert into NF_BOOK
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        ID,
+      </if>
+      <if test="bookName != null">
+        BOOK_NAME,
+      </if>
+      <if test="bookContent != null">
+        BOOK_CONTENT,
+      </if>
+      <if test="bookPrice != null">
+        BOOK_PRICE,
+      </if>
+      <if test="bookNumber != null">
+        BOOK_NUMBER,
+      </if>
+      <if test="auther != null">
+        AUTHER,
+      </if>
+      <if test="delFlag != null">
+        DEL_FLAG,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="bookName != null">
+        #{bookName,jdbcType=VARCHAR},
+      </if>
+      <if test="bookContent != null">
+        #{bookContent,jdbcType=VARCHAR},
+      </if>
+      <if test="bookPrice != null">
+        #{bookPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="bookNumber != null">
+        #{bookNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="auther != null">
+        #{auther,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.nanfeng.oracle_test.model.po.NfBook">
+    update NF_BOOK
+    <set>
+      <if test="bookName != null">
+        BOOK_NAME = #{bookName,jdbcType=VARCHAR},
+      </if>
+      <if test="bookContent != null">
+        BOOK_CONTENT = #{bookContent,jdbcType=VARCHAR},
+      </if>
+      <if test="bookPrice != null">
+        BOOK_PRICE = #{bookPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="bookNumber != null">
+        BOOK_NUMBER = #{bookNumber,jdbcType=DECIMAL},
+      </if>
+      <if test="auther != null">
+        AUTHER = #{auther,jdbcType=VARCHAR},
+      </if>
+      <if test="delFlag != null">
+        DEL_FLAG = #{delFlag,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.com.nanfeng.oracle_test.model.po.NfBook">
+    update NF_BOOK
+    set BOOK_NAME = #{bookName,jdbcType=VARCHAR},
+      BOOK_CONTENT = #{bookContent,jdbcType=VARCHAR},
+      BOOK_PRICE = #{bookPrice,jdbcType=DECIMAL},
+      BOOK_NUMBER = #{bookNumber,jdbcType=DECIMAL},
+      AUTHER = #{auther,jdbcType=VARCHAR},
+      DEL_FLAG = #{delFlag,jdbcType=CHAR}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+</mapper>

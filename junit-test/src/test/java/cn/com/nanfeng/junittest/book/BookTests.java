@@ -48,30 +48,6 @@ public class BookTests {
     }
 
     @Test
-    public void testDecrement() throws Exception{
-        Book book = bookService.decrementBook(3);
-
-        /*for (int i = 0; i < 100; i++) {
-            new Thread(() ->{
-
-                for (int j = 0; j < 1000; j++) {
-
-                }
-            },"线程"+i).start();
-        }*/
-    }
-
-
-
-
-    private void decrement() throws Exception{
-        mockMvc.perform(
-                MockMvcRequestBuilders.get("/decrementBook/{bId}","3")
-                        .contentType(MediaType.APPLICATION_JSON_UTF8))
-                .andExpect(MockMvcResultMatchers.status().isOk());
-    }
-
-    @Test
     public void testQueryBookById() throws Exception{
         mockMvc.perform(
                 MockMvcRequestBuilders.get("/book/queryBookById/{bId}",3)

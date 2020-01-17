@@ -1,5 +1,6 @@
 package cn.com.nanfeng.junittest.service.impl;
 
+import cn.com.nanfeng.commit.util.ParamVariableUtil;
 import cn.com.nanfeng.junittest.mapper.BookMapper;
 import cn.com.nanfeng.junittest.model.po.Book;
 import cn.com.nanfeng.junittest.service.IBookService;
@@ -26,6 +27,8 @@ public class BookServiceImpl implements IBookService {
     @Override
     public Book decrementBook(Integer bId) {
         try {
+            //参数判断
+            ParamVariableUtil.intParam(bId,"图书Id不能为空");
             //查询书籍
             Book book = bookMapper.selectByPrimaryKey(bId);
             int number = book.getBNumber();
