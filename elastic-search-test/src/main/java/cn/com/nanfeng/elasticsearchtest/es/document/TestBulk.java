@@ -33,7 +33,7 @@ public class TestBulk {
                         .startObject()
                             .field("name","张三")
                             .field("tags","tags10")
-                            .field("remark","test remark")
+                            .field("remark","testjob remark")
                         .endObject()
                 )
         );

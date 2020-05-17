@@ -1,11 +1,14 @@
 package cn.com.nanfeng.commit.exception;
 
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * @author liutao
  * @Title
  * @Description
  * @date 2019-12-23 22:15
  */
+@Slf4j
 public class BusinessException extends RuntimeException {
 
     private static final long serialVersionUID = -1484808731293311687L;

@@ -1,6 +1,7 @@
 package cn.com.nanfeng.junittest.book;
 
 import cn.com.nanfeng.junittest.model.po.Book;
+import cn.com.nanfeng.junittest.model.vo.BookVO;
 import cn.com.nanfeng.junittest.service.IBookService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
@@ -17,7 +18,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import javax.annotation.Resource;
-import java.time.LocalDateTime;
+import cn.com.nanfeng.junittest.model.vo.BookVO.BookVOBuilder;
 import java.util.Date;
 import java.util.concurrent.ThreadPoolExecutor;
 
@@ -74,5 +75,4 @@ public class BookTests {
             .andExpect(MockMvcResultMatchers.status().isOk())
             .andDo(MockMvcResultHandlers.print());
     }
-
 }

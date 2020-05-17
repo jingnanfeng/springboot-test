@@ -19,34 +19,34 @@ public class JunitTestApplicationTests {
 
     @BeforeClass
     public static void beforeClassTest(){
-        logger.info("before class test");
+        logger.info("before class testjob");
     }
 
     @Before
     public void beforeTest(){
-        logger.info("before test");
+        logger.info("before testjob");
     }
 
     @Test
     public void Test1(){
-        logger.info("test 1+1=2");
+        logger.info("testjob 1+1=2");
         Assert.assertEquals(2,1 + 1);
     }
 
     @Test
     public void Test2(){
-        logger.info("test 2+2=5");
+        logger.info("testjob 2+2=5");
         Assert.assertEquals(4,2+2);
     }
 
    @After
     public void afterTest(){
-        logger.info("after test");
+        logger.info("after testjob");
    }
 
    @AfterClass
     public static void afterClassTest(){
-        logger.info("after class test");
+        logger.info("after class testjob");
    }
 
 }

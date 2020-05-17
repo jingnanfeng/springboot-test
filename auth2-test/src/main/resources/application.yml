@@ -1,7 +1,7 @@
 security:
   oauth2:
     client:
-      client-id: test
+      client-id: testjob
       client-secret: test1234
       registered-redirect-uri: http://mrbird.cc
 server:
