@@ -2,6 +2,7 @@ package cn.com.nanfeng.redistest.util;
 
 import org.springframework.data.redis.core.BoundListOperations;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -17,7 +18,7 @@ import java.util.concurrent.TimeUnit;
  * @Description
  * @date 2019-11-06 10:48
  */
-@Service
+@Component
 public class RedisUtil {
 
     @Resource
