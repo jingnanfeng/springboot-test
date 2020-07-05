@@ -3,8 +3,9 @@ server:
 spring:
   application:
     name: @artifactId@
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+#  rabbitmq:
+#    host: localhost
+#    port: 5672
+#    username: admin
+#    password: 123456
+#    virtual-host: rabbithost

@@ -28,6 +28,7 @@
         <module>filterandint-test</module>
         <module>boot-commit</module>
         <module>redis-lock</module>
+        <module>springboot-aop</module>
     </modules>
 
     <properties>

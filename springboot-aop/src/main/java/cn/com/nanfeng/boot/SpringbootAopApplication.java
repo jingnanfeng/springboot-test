@@ -1,13 +1,13 @@
-package cn.com.nanfeng.rabbitmqtest;
+package cn.com.nanfeng.boot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RabbitmqTestApplication {
+public class SpringbootAopApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(RabbitmqTestApplication.class, args);
+        SpringApplication.run(SpringbootAopApplication.class, args);
     }
 
 }
