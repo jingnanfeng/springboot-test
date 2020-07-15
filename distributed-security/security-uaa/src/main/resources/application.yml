@@ -1,0 +1,76 @@
+#eureka.client.serviceUrl.defaultZone = http://localhost:53000/eureka/
+#eureka.instance.preferIpAddress = true
+#eureka.instance.instance‐id = ${spring.application.name}:${spring.cloud.client.ip‐address}:${spring.application.instance_id:${server.port}}
+server:
+  port: 9012
+  tomcat:
+    remote-ip-header: x-forwarded-for
+    protocol-header: x-forwarded-proto
+  use-forward-headers: true
+  servlet:
+    context-path: /uaa
+spring:
+  application:
+    name: uaa-service
+  main:
+    allow-bean-definition-overriding: true
+  http:
+    encoding:
+      enabled: true
+      charset: UTF-8
+      force: true
+  freemarker:
+    enabled: true
+    suffix: .html
+    request-context-attribute: rc
+    content-type: text/html
+    charset: UTF-8
+  mvc:
+    throw-exception-if-no-handler-found: true
+  datasource:
+    druid:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/user_db?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+      username: root
+      password: 123456
+      # 初始化大小，最大，最小
+      initial-size: 5
+      min-idle: 5
+      max-active: 20
+      max-wait: 20
+      # 配置间隔多久才能进行一次检查，检查需要关闭的连接，单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      # 配置连接在池中的最小生存时间
+      min-evictable-idle-time-millis: 300000
+      validation-query: select '1' from dual
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+logging:
+  level:
+    root: debug
+    org:
+      springframework:
+        web: info
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh,health,info,env
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+      mine-types[0]: text/xml
+      mine-types[1]: application/xml
+      mine-types[2]: application/json
+      min-request-size: 2048
+    response:
+      enabled: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9001/eureka

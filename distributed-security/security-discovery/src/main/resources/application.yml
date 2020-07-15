@@ -1,0 +1,22 @@
+server:
+  port: 9001
+spring:
+  application:
+    name: security-discovery
+#关闭服务器自我保护，客户端心跳检测15分钟内错误达到80%服务会保护，导致别人还任务服务是好的
+eureka:
+  server:
+    enable-self-preservation: false
+    #清理间隔（单位为毫秒，默认是60 * 1000）5s将客户端剔除掉的服务再服务注册列表中删除
+    eviction-interval-timer-in-ms: 10000
+  client:
+    register-with-eureka: false #false不会作为一个客户端注册到注册中心去
+    fetch-registry: false #false表示自己端就是注册中心，我的职责就是维护服务实例，不需要去检索服务
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka/
+
+
+
+
+
+
