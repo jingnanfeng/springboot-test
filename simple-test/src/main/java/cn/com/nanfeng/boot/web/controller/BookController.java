@@ -19,11 +19,11 @@ import javax.annotation.Resource;
  * @Description
  * @date 2020-05-10 12:11
  */
-@RestController
-@RequestMapping("/book")
+//@RestController
+//@RequestMapping("/book")
 public class BookController {
 
-    @Resource
+    //@Resource
     private BookService bookService;
 
     @GetMapping("/qureyBookDetail")

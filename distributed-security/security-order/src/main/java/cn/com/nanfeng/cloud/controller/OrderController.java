@@ -1,7 +1,5 @@
 package cn.com.nanfeng.cloud.controller;
 
-import cn.com.nanfeng.cloud.model.UserDto;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

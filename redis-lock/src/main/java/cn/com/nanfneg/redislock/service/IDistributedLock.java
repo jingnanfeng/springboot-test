@@ -64,7 +64,7 @@ public interface IDistributedLock {
      * @param key
      * @return
      */
-    boolean releaseLock(String key);
+    boolean unlock(String key);
 
 
 }

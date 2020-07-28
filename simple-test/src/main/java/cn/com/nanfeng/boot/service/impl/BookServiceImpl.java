@@ -20,7 +20,7 @@ import java.util.concurrent.TimeUnit;
  * @Description
  * @date 2020-05-10 10:28
  */
-@Service
+//@Service
 public class BookServiceImpl implements BookService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BookServiceImpl.class);
