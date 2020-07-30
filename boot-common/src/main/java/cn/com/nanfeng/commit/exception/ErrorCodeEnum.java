@@ -12,6 +12,8 @@ public enum ErrorCodeEnum {
     ERROR50001(50001,"服务器内部错误"),
     ERROR30001(30001,"操作数据库异常"),
     ERROR40001(40001,"业务逻辑异常"),
+
+    COMMON1110(11110,"该接口已提交，不允许重复提交"),
     ;
 
     private int code;

@@ -25,7 +25,7 @@
         <module>rabbitmq-test</module>
         <module>junit-test</module>
         <module>mybatis-test</module>
-        <module>boot-commit</module>
+        <module>boot-common</module>
         <module>redis-lock</module>
         <module>springboot-aop</module>
         <module>security-oauth2</module>

@@ -2,8 +2,7 @@ package cn.com.nanfneg.redislock.service;
 
 /**
  * @author liutao
- * @Title
- * @Description
+ * @description 分布式锁
  * @date 2020-05-30 22:28
  */
 public interface IDistributedLock {
@@ -11,15 +10,15 @@ public interface IDistributedLock {
     /**
      * 分布式锁
      * @param key 主键
-     * @return
+     * @return 是否加锁成功
      */
     boolean lock(String key);
 
     /**
      * 分布式锁
-     * @param key
-     * @param retryCount
-     * @return
+     * @param key 主键
+     * @param retryCount 重试次数
+     * @return 是否加锁成功
      */
     boolean lock(String key,int retryCount);
 
@@ -28,7 +27,7 @@ public interface IDistributedLock {
      * @param key 主键
      * @param retryCount 重试次数
      * @param sleepMillis 时间间隔
-     * @return
+     * @return 是否加锁成功
      */
     boolean lock(String key,int retryCount,long sleepMillis);
 
@@ -36,7 +35,7 @@ public interface IDistributedLock {
      * 设置睡眠时间
      * @param key 主键
      * @param expire 有效时间
-     * @return
+     * @return 是否加锁成功
      */
     boolean lock(String key,long expire);
 
@@ -45,7 +44,7 @@ public interface IDistributedLock {
      * @param key 主键
      * @param expire 有效时间
      * @param retryCount 重试次数
-     * @return
+     * @return 是否加锁成功
      */
     boolean lock(String key,long expire,int retryCount);
 
@@ -55,14 +54,14 @@ public interface IDistributedLock {
      * @param expire 有效时间
      * @param retryCount 重试次数
      * @param sleepMillis 时间间隔
-     * @return
+     * @return 是否加锁
      */
     boolean lock(String key,long expire,int retryCount,long sleepMillis);
 
     /**
      * 释放锁
-     * @param key
-     * @return
+     * @param key 主键
+     * @return 是否加锁
      */
     boolean unlock(String key);
 

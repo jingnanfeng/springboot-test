@@ -8,11 +8,11 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
-import org.aspectj.lang.reflect.MemberSignature;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
@@ -27,7 +27,7 @@ import java.util.Arrays;
  */
 @Slf4j
 @Aspect
-@Configuration
+@Component
 @ConditionalOnBean(IDistributedLock.class)
 @AutoConfigureAfter(DistributeLockAutoConfiguration.class)
 public class DistributedLockAspectConfiguration {
