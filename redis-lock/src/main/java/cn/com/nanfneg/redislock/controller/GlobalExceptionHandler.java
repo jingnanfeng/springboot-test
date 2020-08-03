@@ -1,6 +1,7 @@
 package cn.com.nanfneg.redislock.controller;
 
 
+import cn.com.nanfeng.commit.exception.BusinessException;
 import cn.com.nanfeng.commit.exception.RepeatSubmitException;
 import cn.com.nanfeng.commit.response.WrapMapper;
 import cn.com.nanfeng.commit.response.Wrapper;
@@ -20,17 +21,30 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
     /**
-     * 参数非法异常.
+     * 重复提交异常
      *
      * @param e the e
      *
      * @return the wrapper
      */
-    @ExceptionHandler(Throwable.class)
+    @ExceptionHandler(RepeatSubmitException.class)
     @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public Wrapper repeatSubmitException(RepeatSubmitException e) {
-        log.error("参数非法异常={}", e.getMessage(), e);
+        log.error("重复提交异常={}", e.getMessage(), e);
+        return WrapMapper.wrap(e.getCode(),e.getMessage());
+    }
+
+    /**
+     * 业务处理异常
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(BusinessException.class)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public Wrapper BusinessException(BusinessException e){
+        log.error("业务处理异常",e.getMessage(),e);
         return WrapMapper.wrap(e.getCode(),e.getMessage());
     }
 

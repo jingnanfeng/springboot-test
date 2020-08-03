@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.com.nanfeng.junittest.mapper.UsersMapper">
-  <resultMap id="BaseResultMap" type="cn.com.nanfeng.junittest.model.po.Users">
+<mapper namespace="cn.com.nanfeng.junittest.cn.com.nanfneg.redislock.mapper.UsersMapper">
+  <resultMap id="BaseResultMap" type="cn.com.nanfeng.junittest.cn.com.nanfneg.redislock.model.po.Users">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="age" jdbcType="INTEGER" property="age" />
@@ -20,13 +20,13 @@
     delete from users
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.com.nanfeng.junittest.model.po.Users" keyProperty="id" useGeneratedKeys="true">
+  <insert id="insert" parameterType="cn.com.nanfeng.junittest.cn.com.nanfneg.redislock.model.po.Users" keyProperty="id" useGeneratedKeys="true">
     insert into users (name, age,
       sex)
     values (#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER},
       #{sex,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" parameterType="cn.com.nanfeng.junittest.model.po.Users" keyProperty="id" useGeneratedKeys="true">
+  <insert id="insertSelective" parameterType="cn.com.nanfeng.junittest.cn.com.nanfneg.redislock.model.po.Users" keyProperty="id" useGeneratedKeys="true">
     insert into users
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="name != null">
@@ -51,7 +51,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.com.nanfeng.junittest.model.po.Users">
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.nanfeng.junittest.cn.com.nanfneg.redislock.model.po.Users">
     update users
     <set>
       <if test="name != null">
@@ -66,7 +66,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.com.nanfeng.junittest.model.po.Users">
+  <update id="updateByPrimaryKey" parameterType="cn.com.nanfeng.junittest.cn.com.nanfneg.redislock.model.po.Users">
     update users
     set name = #{name,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER},

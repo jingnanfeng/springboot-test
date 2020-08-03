@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.com.nanfeng.boot.mapper.StudentMapper">
-  <resultMap id="BaseResultMap" type="cn.com.nanfeng.boot.model.po.Student">
+<mapper namespace="cn.com.nanfeng.boot.cn.com.nanfneg.redislock.mapper.StudentMapper">
+  <resultMap id="BaseResultMap" type="cn.com.nanfeng.boot.cn.com.nanfneg.redislock.model.po.Student">
     <id column="student_id" jdbcType="VARCHAR" property="studentId" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="identify_no" jdbcType="VARCHAR" property="identifyNo" />
@@ -24,7 +24,7 @@
     delete from student
     where student_id = #{studentId,jdbcType=VARCHAR}
   </delete>
-  <insert id="insert" parameterType="cn.com.nanfeng.boot.model.po.Student">
+  <insert id="insert" parameterType="cn.com.nanfeng.boot.cn.com.nanfneg.redislock.model.po.Student">
     insert into student (student_id, name, identify_no,
       profess, class, enro_time,
       tel_no, credit)
@@ -32,7 +32,7 @@
       #{profess,jdbcType=VARCHAR}, #{classes,jdbcType=VARCHAR}, #{enroTime,jdbcType=VARCHAR},
       #{telNo,jdbcType=VARCHAR}, #{credit,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="cn.com.nanfeng.boot.model.po.Student">
+  <insert id="insertSelective" parameterType="cn.com.nanfeng.boot.cn.com.nanfneg.redislock.model.po.Student">
     insert into student
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="studentId != null">
@@ -87,7 +87,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.com.nanfeng.boot.model.po.Student">
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.nanfeng.boot.cn.com.nanfneg.redislock.model.po.Student">
     update student
     <set>
       <if test="name != null">
@@ -114,7 +114,7 @@
     </set>
     where student_id = #{studentId,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.com.nanfeng.boot.model.po.Student">
+  <update id="updateByPrimaryKey" parameterType="cn.com.nanfeng.boot.cn.com.nanfneg.redislock.model.po.Student">
     update student
     set name = #{name,jdbcType=VARCHAR},
       identify_no = #{identifyNo,jdbcType=VARCHAR},

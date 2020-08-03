@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="cn.com.nanfeng.boot.mapper.BookMapper">
-  <resultMap id="BaseResultMap" type="cn.com.nanfeng.boot.model.po.Book">
+<mapper namespace="cn.com.nanfeng.redistest.cn.com.nanfneg.redislock.mapper.BookMapper">
+  <resultMap id="BaseResultMap" type="cn.com.nanfeng.redistest.cn.com.nanfneg.redislock.model.po.Book">
     <id column="b_id" jdbcType="INTEGER" property="bId" />
     <result column="b_name" jdbcType="VARCHAR" property="bName" />
     <result column="b_content" jdbcType="VARCHAR" property="bContent" />
@@ -23,20 +23,24 @@
     delete from book
     where b_id = #{bId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="cn.com.nanfeng.boot.model.po.Book">
-    insert into book (b_id, b_name, b_content, 
+  <insert id="insert" parameterType="cn.com.nanfeng.redistest.cn.com.nanfneg.redislock.model.po.Book"
+          useGeneratedKeys="true" keyProperty="bId">
+    <selectKey keyProperty="bId" resultType="java.lang.Integer" order="AFTER">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into book (b_name, b_content,
       b_image, b_price, b_number, 
       b_date)
-    values (#{bId,jdbcType=INTEGER}, #{bName,jdbcType=VARCHAR}, #{bContent,jdbcType=VARCHAR}, 
+    values (#{bName,jdbcType=VARCHAR}, #{bContent,jdbcType=VARCHAR},
       #{bImage,jdbcType=VARCHAR}, #{bPrice,jdbcType=INTEGER}, #{bNumber,jdbcType=INTEGER}, 
       #{bDate,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="cn.com.nanfeng.boot.model.po.Book">
+  <insert id="insertSelective" parameterType="cn.com.nanfeng.redistest.cn.com.nanfneg.redislock.model.po.Book">
+    <selectKey keyProperty="bId" resultType="java.lang.Integer" order="AFTER">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
     insert into book
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="bId != null">
-        b_id,
-      </if>
       <if test="bName != null">
         b_name,
       </if>
@@ -57,9 +61,6 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="bId != null">
-        #{bId,jdbcType=INTEGER},
-      </if>
       <if test="bName != null">
         #{bName,jdbcType=VARCHAR},
       </if>
@@ -80,7 +81,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="cn.com.nanfeng.boot.model.po.Book">
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.nanfeng.redistest.cn.com.nanfneg.redislock.model.po.Book">
     update book
     <set>
       <if test="bName != null">
@@ -104,7 +105,7 @@
     </set>
     where b_id = #{bId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="cn.com.nanfeng.boot.model.po.Book">
+  <update id="updateByPrimaryKey" parameterType="cn.com.nanfeng.redistest.cn.com.nanfneg.redislock.model.po.Book">
     update book
     set b_name = #{bName,jdbcType=VARCHAR},
       b_content = #{bContent,jdbcType=VARCHAR},
@@ -114,4 +115,8 @@
       b_date = #{bDate,jdbcType=DATE}
     where b_id = #{bId,jdbcType=INTEGER}
   </update>
+
+  <select id="selectAllBook" resultMap="BaseResultMap">
+    select * from book
+  </select>
 </mapper>
