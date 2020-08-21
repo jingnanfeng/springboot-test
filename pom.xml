@@ -30,6 +30,8 @@
         <module>springboot-aop</module>
         <module>security-oauth2</module>
         <module>distributed-security</module>
+        <module>kafka-test</module>
+        <module>jpa-test</module>
     </modules>
 
     <properties>

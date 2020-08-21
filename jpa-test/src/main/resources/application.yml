@@ -1,0 +1,23 @@
+server:
+  port: 8586
+
+spring:
+  application:
+    name: jpa-boot
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/hello?characterEncoding=utf8&serverTimezone=UTC
+    username: hello
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      initial-size: 5
+      min-idle: 5
+      max-active: 50
+      max-wait: 3000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 30000
+  jpa:
+    hibernate:
+      ddl-auto: update #自动更新
+    show-sql: true  #在日志中显示sql语句

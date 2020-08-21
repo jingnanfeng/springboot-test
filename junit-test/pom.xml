@@ -42,7 +42,7 @@
 
 		<dependency>
 			<groupId>cn.com.nanfeng</groupId>
-			<artifactId>boot-commit</artifactId>
+			<artifactId>boot-common</artifactId>
 			<version>1.0-SNAPSHOT</version>
 		</dependency>
 
