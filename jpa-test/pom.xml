@@ -11,7 +11,7 @@
     <groupId>cn.com.nanfeng</groupId>
     <artifactId>jpa-test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>redis-lock</name>
+    <name>jpa-test</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

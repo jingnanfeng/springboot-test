@@ -32,6 +32,7 @@
         <module>distributed-security</module>
         <module>kafka-test</module>
         <module>jpa-test</module>
+        <module>hadoop-test</module>
     </modules>
 
     <properties>

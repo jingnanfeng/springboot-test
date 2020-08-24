@@ -1,0 +1,16 @@
+#tomcat thread =200
+server:
+  port: 8006
+  tomcat:
+    max-threads: 1000
+spring:
+  application:
+    name: hadoop-test
+  servlet:
+    multipart:
+      max-file-size: 52428800
+      max-request-size: 52428800
+hdfs:
+  path: hdfs://hadoop1:9000
+  username: nanfeng
+
