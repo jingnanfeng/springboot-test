@@ -22,9 +22,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static javafx.scene.input.KeyCode.F;
-
-
 /**
  * hdfs的service
  * @author liutao
