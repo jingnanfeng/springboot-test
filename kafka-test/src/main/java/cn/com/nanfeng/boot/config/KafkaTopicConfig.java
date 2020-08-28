@@ -1,8 +1,5 @@
 package cn.com.nanfeng.boot.config;
 
-import cn.com.nanfeng.boot.constants.GlobalConstant;
-import org.apache.kafka.clients.admin.NewTopic;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -14,10 +11,5 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class KafkaTopicConfig {
-
-    @Bean
-    public NewTopic batchTopic(){
-        return new NewTopic(GlobalConstant.TEST_TOPIC,8,(short) 1);
-    }
 
 }

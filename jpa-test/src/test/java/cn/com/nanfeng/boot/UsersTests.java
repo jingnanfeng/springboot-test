@@ -180,7 +180,7 @@ public class UsersTests {
                 return predicate;
 
             }
-        }
+        };
     }
 
 }

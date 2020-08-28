@@ -21,6 +21,8 @@ import java.util.Optional;
 @Slf4j
 public class ConsumerDemo {
 
+
+
     /**
      * 配置topic和分区，可以配置多个
      * topic为队列名称
@@ -34,7 +36,7 @@ public class ConsumerDemo {
 //                   partitions = {"0","2"},
 //                   partitionOffsets = @PartitionOffset(partition = "1",initialOffset = "4"))
 //   })
-    @KafkaListener(topics = GlobalConstant.TEST_TOPIC)
+    @KafkaListener(topics = GlobalConstant.FTARGET)
     public void consumer(ConsumerRecord consumerRecord){
        Optional<Object> kafkaMessage = Optional.ofNullable(consumerRecord.value());
        if (kafkaMessage.isPresent()){

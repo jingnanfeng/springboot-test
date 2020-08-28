@@ -9,4 +9,8 @@ public class GlobalConstant {
 
     public static final String TEST_TOPIC = "testTopic";
 
+    public static final String FSOURCE = "fsource111";
+
+    public static final String FTARGET = "ftarget111";
+
 }

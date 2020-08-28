@@ -12,11 +12,11 @@ import org.springframework.stereotype.Component;
  * @Description
  * @date 2020-06-17 20:06
 // */
-//@Component
-//public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
-//    @Override
-//    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
-//        BeanDefinition bookServiceImpl = beanFactory.getBeanDefinition("BookServiceImpl");
-//
-//    }
-//}
+@Component
+public class MyBeanFactoryPostProcessor implements BeanFactoryPostProcessor {
+    @Override
+    public void postProcessBeanFactory(ConfigurableListableBeanFactory beanFactory) throws BeansException {
+        BeanDefinition bookServiceImpl = beanFactory.getBeanDefinition("BookServiceImpl");
+
+    }
+}

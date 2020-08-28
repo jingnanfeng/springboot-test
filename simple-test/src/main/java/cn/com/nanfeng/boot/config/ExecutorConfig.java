@@ -1,5 +1,6 @@
 package cn.com.nanfeng.boot.config;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableAsync;
@@ -17,6 +18,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 @Configuration
 @EnableAsync
+@Slf4j
 public class ExecutorConfig {
 
     /**
@@ -32,7 +34,7 @@ public class ExecutorConfig {
     /**
      * 缓存队列
      */
-    private static final int QUEUE_CAPACITY = 10;
+    private static final int QUEUE_CAPACITY = 99999;
 
     /**
      * 允许的空闲时间
@@ -41,7 +43,10 @@ public class ExecutorConfig {
 
     @Bean("executorService")
     public ExecutorService executorPool(){
-        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+
+        log.info("start asyncServiceExecutor");
+
+        ThreadPoolTaskExecutor executor = new VisiableThreadPoolTaskExecutor();
         executor.setCorePoolSize(CODE_POOL_SIZE);
         executor.setMaxPoolSize(MAX_POOL_SIZE);
         executor.setQueueCapacity(QUEUE_CAPACITY);

@@ -29,10 +29,15 @@
         <module>redis-lock</module>
         <module>springboot-aop</module>
         <module>security-oauth2</module>
-        <module>distributed-security</module>
+        <module>distribute-security</module>
         <module>kafka-test</module>
         <module>jpa-test</module>
+        <module>elastic-search-test</module>
         <module>hadoop-test</module>
+        <module>oracle_test</module>
+        <module>quartz-test</module>
+        <module>schedule-test</module>
+        <module>simple-test</module>
     </modules>
 
     <properties>

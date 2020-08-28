@@ -15,6 +15,7 @@ import javax.annotation.Resource;
 @RestController
 public class ProducerController {
 
+
     @Resource
     private KafkaTemplate<String,Object> kafkaTemplate;
 
