@@ -1,6 +1,8 @@
 package cn.com.nanfeng.boot.controller;
 
 import cn.com.nanfeng.boot.constants.GlobalConstant;
+import cn.com.nanfeng.boot.model.SingleMessage;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,9 +27,14 @@ public class ProducerController {
      * @return
      */
     @GetMapping("/message/send")
-    public String send(String msg){
+    public String send(){
         //使用kafka发送消息
-        kafkaTemplate.send(GlobalConstant.TEST_TOPIC,"1",msg);
+        long timeMillis = System.currentTimeMillis();
+        SingleMessage singleMessage = new SingleMessage();
+        singleMessage.setTimeLong(timeMillis);
+        singleMessage.setName("zhangsan");
+        String json = JSONObject.toJSONString(singleMessage);
+        kafkaTemplate.send(GlobalConstant.TOPIC,"1",json);
         return "success";
     }
 

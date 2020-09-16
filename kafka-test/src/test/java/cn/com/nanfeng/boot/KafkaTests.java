@@ -3,7 +3,9 @@ package cn.com.nanfeng.boot;
 import cn.com.nanfeng.boot.constants.GlobalConstant;
 import cn.com.nanfeng.boot.consumer.ConsumerDemo;
 import cn.com.nanfeng.boot.model.Fsource;
+import cn.com.nanfeng.boot.model.SingleMessage;
 import cn.com.nanfeng.boot.serializer.JsonSerializer;
+import com.alibaba.fastjson.JSONObject;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -26,23 +28,20 @@ public class KafkaTests {
 
     private JsonSerializer<Fsource> serializer = new JsonSerializer<>();
 
-    private static Fsource fsource1 = null;
-    private static Fsource fsource2 = null;
 
 
-    @BeforeClass
-    public static void initObject(){
 
-        fsource1 = new Fsource("1","55","44",System.currentTimeMillis());
-        fsource2 = new Fsource("1","66","44",System.currentTimeMillis());
-
-    }
 
 
     @Test
     public void testSendMessage(){
-        byte[] data = serializer.toJSONBytes(fsource1);
-        kafkaTemplate.send(GlobalConstant.FSOURCE,data);
+
+        long timeMillis = System.currentTimeMillis();
+        SingleMessage singleMessage = new SingleMessage();
+        singleMessage.setTimeLong(timeMillis);
+        singleMessage.setName("zhangsan");
+        String json = JSONObject.toJSONString(singleMessage);
+        kafkaTemplate.send(GlobalConstant.TOPIC,json);
     }
 
 }

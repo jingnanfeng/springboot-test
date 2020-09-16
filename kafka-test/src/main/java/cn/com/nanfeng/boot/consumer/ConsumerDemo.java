@@ -36,7 +36,7 @@ public class ConsumerDemo {
 //                   partitions = {"0","2"},
 //                   partitionOffsets = @PartitionOffset(partition = "1",initialOffset = "4"))
 //   })
-    @KafkaListener(topics = GlobalConstant.FTARGET)
+    @KafkaListener(topics = GlobalConstant.TOPIC)
     public void consumer(ConsumerRecord consumerRecord){
        Optional<Object> kafkaMessage = Optional.ofNullable(consumerRecord.value());
        if (kafkaMessage.isPresent()){

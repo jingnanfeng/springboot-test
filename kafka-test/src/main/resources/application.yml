@@ -4,11 +4,11 @@ spring:
   application:
     name: kafka-demo
   kafka:
-    bootstrap-servers: 172.16.13.116:9092,172.16.13.117:9092,172.16.13.118:9092 #指定kafka server的地址，集群配置多个，中间逗号隔开
+    bootstrap-servers: hadoop1:9092 #指定kafka server的地址，集群配置多个，中间逗号隔开
     #---------------------生产者配置文件-----------------
     producer:
-      key-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
-      value-serializer: org.apache.kafka.common.serialization.ByteArraySerializer
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
       #设置等待acks返回的机制，有三个值
       #0：不等待返回的acks(可能会丢失数据，因为发送消息没有了失败重试机制，但是这是最低延迟)
       #1:消息发送给kafka分区中的leader后就返回（如果follower没有同步完成leader就宕机了，就会丢失数据）
@@ -28,7 +28,7 @@ spring:
       retries: 2
     #---------------------消费者配置文件-------------------
     consumer:
-      group-id: kafkaSourceTest5 #群组id
+      group-id: flink-group #群组id
       #kafka意外宕机，再次开启消息消费的策略，共有三种策略
       #earliest:当各分区下已有提交的offset时，从提交的offset开始消费，无提交的offset时，从头开始消费
       #latest:当各分区下已有提交的offset时，从提交的offset开始消费；无提交的offset时，消费新产生的该分区下的数据
@@ -38,6 +38,6 @@ spring:
       enable-auto-commit: true
       #提交offset时间间隔
       auto-commit-interval: 100
-      key-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.ByteArrayDeserializer
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 
